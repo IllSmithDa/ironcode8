@@ -1,33 +1,189 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+
+@font-face {
+  font-family: 'Roboto Normal';
+  src: url('../../public/fonts/Roboto/Roboto-Regular.ttf');
+  font-weight: 400;
+  font-style: normal;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@font-face {
+  font-family: 'Roboto Mono';
+  src: url('../../public/fonts/RobotoMono/RobotoMono-Regular.ttf');
+  font-weight: 400;
+  font-style: normal;
+}
+
+html {
+  font-size: 10px;
+  font-family: roboto-mono;
+}
+
+li {
+  list-style: none;
+}
+
+h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+
+h4 {
+  font-size: 1.7rem;
+  font-weight: 600;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+p, a {
+  font-size: 1.5rem;
+}
+a:hover {
+  text-decoration: underline;
+}
+pre {
+  font-size: 1.4rem;
+}
+
+.modal-open {
+  overflow: hidden;
+}
+
+.dark h1, .dark h2, .dark h3, .dark h4, .dark p, .dark pre, .dark a, .dark button {
+ color: #F1F1F1;
+}
+
+@media (max-width: 500px) {
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  h3 {
+    font-size: 1.6rem;
+  }
+
+  h4 {
+    font-size: 1.4rem;
+  }
+  p{
+    font-size: 1.2rem;
+    line-height: 1.7rem;
+  }
+  pre, font {
+    font-size: 1rem;
+    line-height: 15px;
+
+  }
+  
+}
+@media (max-width:  400px) {
+  p {
+    font-size: 1rem;
+  }
+  pre, font {
+    font-size: 8px;
+    line-height: 12px;
+
+  }
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+  }
+  h4 {
+    font-size: 1rem;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@media (max-width:  300px) {
+  p {
+    font-size: 8px;
+  }
+  pre, font, p {
+    font-size: 7px;
+    line-height: 12px;
+
+  }
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+.fadeInLeft {
+  animation-duration: 2s;
+  animation-name: fadeInLeft;
+}
+
+@keyframes fadeInLeft {
+  from {
+    margin-left: 1rem;
+    opacity: 0;
+  }
+
+  to {
+    margin-left: 0%;
+    opacity: 1;
+  }
+}
+
+.loader {
+  border: 1rem solid #f3f3f3; /* Light grey */
+  border-top: 1rem solid #777;
+  border-bottom: 1rem solid #777;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  animation: spin 2s linear infinite;
+  align-self: center;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.moveInRight {
+  animation-duration: .3s;
+  animation-name: moveInRight;
+}
+
+.moveInLeft {
+  animation-duration: .3s;
+  animation-name: moveInLeft;
+}
+
+@keyframes moveInRight {
+  from {
+    left: -100%;
+    opacity: 0.7;
+  }
+
+  to {
+    left: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes moveInLeft {
+  from {
+    left: 100%;
+    opacity: 0.7;
+  }
+
+  to {
+    left: 0;
+    opacity: 1;
   }
 }
